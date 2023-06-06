@@ -1,14 +1,13 @@
-import React from "react";
-
+import { useTranslation } from "react-i18next";
 function Navbar() {
+  const { t } = useTranslation();
   return (
     <div className="icon-name-container">
       <div className="iconAndName">
         <i className="fa-solid fa-user"></i>
 
-        <h1>Nemanja Djoric</h1>
+        <h1>{t("name")}</h1>
       </div>
-      <i className="fa-solid fa-user"></i>
     </div>
   );
 }

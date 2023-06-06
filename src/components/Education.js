@@ -1,14 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Education() {
+  const { t } = useTranslation();
   return (
     <div>
-      <h2>Education</h2>
-      <p>
-        {" "}
-        Belgrade Business School, Belgrade University (bachelor of applied
-        science).
-      </p>
+      <h2>{t("Education1")}</h2>
+      <p> {t("Education")}.</p>
     </div>
   );
 }
