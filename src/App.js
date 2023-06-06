@@ -1,6 +1,7 @@
 import { Suspense, useState } from "react";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import Modal from "react-modal";
 
 import Navbar from "./components/Navbar";
 import Education from "./components/Education";
@@ -24,31 +25,45 @@ i18n
 
 function App() {
   const [count, setCount] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const onChange = (event) => {
     i18n.changeLanguage(event.target.value);
     setCount((previousCount) => previousCount + 1);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+
   return (
-    <Suspense fallback={"Loading..."}>
-      <div className="App">
-        <select onChange={onChange}>
-          <option value="fr">SR</option>
-          <option value="en">EN</option>
-        </select>
-        <Navbar />
-        <Education />
-        <div className="fl">
-          {data.map((job, index) => (
-            <WorkExperience key={index} />
-          ))}
+    <>
+      <button onClick={() => setOpen(true)}>Open Modal</button>
+      <Modal isOpen={open}>
+        <h2>Nesto</h2>
+        <p>Opet nesto</p>
+        <button onClick={() => setOpen(false)}>Close</button>
+      </Modal>
+      <Suspense fallback={"Loading..."}>
+        <div className="App">
+          <div className="header">
+            <Navbar />
+            <select
+              onChange={onChange}
+              style={{
+                fontFamily: "FontAwesome",
+              }}
+            >
+              <option value="fr">SR</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+          <Education />
+          <div className="fl">
+            {data.map((job, index) => (
+              <WorkExperience key={index} />
+            ))}
+          </div>
+          <Form />
         </div>
-        <Form />
-      </div>
-    </Suspense>
+      </Suspense>
+    </>
   );
 }
 

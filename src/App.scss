@@ -36,9 +36,21 @@
     transform: rotate(360deg);
   }
 }
+.header {
+  select {
+    align-self: center;
+    padding: 3px;
+  }
+  width: 100vw;
+  display: flex;
+  height: 4rem;
+  background-color: #ccc;
+  justify-content: space-around;
+}
 .icon-name-container {
   display: flex;
   justify-content: space-between;
+
   align-items: center;
 
   .iconAndName {

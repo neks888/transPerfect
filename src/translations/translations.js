@@ -34,6 +34,11 @@ export const translationsEn = {
   Education1: "Education",
   formFirst: "First Name",
   formLast: "Last Name",
+  d1: "Date",
+  p1: "Position",
+  c1: "Company",
+  pr1: "Project",
+  t1: "Tools",
 };
 
 export const translationsFr = {
@@ -65,9 +70,9 @@ export const translationsFr = {
   Position3: "Bеб програмер",
   Company3: "Upwork(Cacak(remote), Serbia)",
 
-  Project3: `Working on a variety of both static as well as dynamic websites 
-    (basic websites for small 
-    micro business, bug-fixing - mostly in JQuery and Vanilla JS,...).`,
+  Project3: `Рад на различитим статичким и динамичким веб локацијама
+  (основне веб странице за мале
+  микро бизнис, исправљање грешака - углавном у ЈКуери и Ванилла ЈС,...).`,
   Tools3: `PHP, Vanilla Javascript, JQuery, WordPress, React.js.`,
 
   Education:
@@ -75,4 +80,9 @@ export const translationsFr = {
   Education1: "Oбразовање",
   formFirst: "Име",
   formLast: "Презиме",
+  d1: "Датум",
+  p1: "Позиција",
+  c1: "Компанија",
+  pr1: "Пројекат",
+  t1: "Алати",
 };

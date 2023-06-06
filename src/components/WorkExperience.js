@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 function WorkExperience() {
   const { t } = useTranslation();
 
+  const keyes = ["d1", "p1", "c1", "pr1", "t1"];
+
   const values = [
     {
       Date: "Date1",
@@ -38,7 +40,7 @@ function WorkExperience() {
                   fontWeight: "bold",
                 }}
               >
-                {Object.keys(val)}
+                {t(`${keyes[index]}`)}
               </span>{" "}
               : {t(`${Object.values(val)}`)}
             </li>
