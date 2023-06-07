@@ -1,23 +1,27 @@
 import { useState } from "react";
+import Modal from "react-modal";
 
 function Form() {
   const initialValues = { firstName: "", lastName: "", email: "", text: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
 
+  const [open, setOpen] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-
+  const { firstName, lastName, email, text } = formValues;
   const handleSubmit = (e) => {
-    const { firstName, lastName, email, text } = formValues;
     e.preventDefault();
     if (!firstName || !lastName || !email || !text) {
       alert("Everything must be submitted");
       setFormErrors(validate(formValues));
 
       return;
+    } else {
+      setOpen(true);
     }
   };
 
@@ -44,6 +48,19 @@ function Form() {
 
   return (
     <>
+      <Modal className="editModal" isOpen={open}>
+        <div class="card" style={{ width: "18rem" }}>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{firstName}</li>
+            <li class="list-group-item">{lastName}</li>
+            <li class="list-group-item">{email}</li>
+            <li class="list-group-item">{text}</li>
+          </ul>
+        </div>
+        <button className="btn btn-primary" onClick={() => setOpen(false)}>
+          Close
+        </button>
+      </Modal>
       <form
         style={{ maxWidth: "30%", margin: "0 auto", textAlign: "left" }}
         className="form-group"
@@ -51,7 +68,9 @@ function Form() {
       >
         <div className="field">
           <input
-            style={{ border: formErrors.firstName ? "1px solid red" : "" }}
+            style={{
+              border: formErrors.firstName ? "1px solid red" : "",
+            }}
             className="form-control"
             id="exampleFormControlInput1"
             type="text"
@@ -65,7 +84,9 @@ function Form() {
         {""}
         <div className="field">
           <input
-            style={{ border: formErrors.lastName ? "1px solid red" : "" }}
+            style={{
+              border: formErrors.lastName ? "1px solid red" : "1px solid black",
+            }}
             className="form-control"
             type="text"
             name="lastName"

@@ -1,7 +1,6 @@
 import { Suspense, useState } from "react";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import Modal from "react-modal";
 
 import Navbar from "./components/Navbar";
 import Education from "./components/Education";
@@ -25,7 +24,6 @@ i18n
 
 function App() {
   const [count, setCount] = useState(0);
-  const [open, setOpen] = useState(false);
 
   const onChange = (event) => {
     i18n.changeLanguage(event.target.value);
@@ -34,12 +32,6 @@ function App() {
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>Open Modal</button>
-      <Modal isOpen={open}>
-        <h2>Nesto</h2>
-        <p>Opet nesto</p>
-        <button onClick={() => setOpen(false)}>Close</button>
-      </Modal>
       <Suspense fallback={"Loading..."}>
         <div className="App">
           <div className="header">
