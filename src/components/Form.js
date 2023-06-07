@@ -49,13 +49,14 @@ function Form() {
   return (
     <>
       <Modal className="editModal" isOpen={open}>
-        <div class="card" style={{ width: "18rem" }}>
+        <div class="card" style={{ width: "25rem" }}>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">{firstName}</li>
             <li class="list-group-item">{lastName}</li>
             <li class="list-group-item">{email}</li>
             <li class="list-group-item">{text}</li>
           </ul>
+          <h3 className="text-center">Your message has been sent</h3>
         </div>
         <button className="btn btn-primary" onClick={() => setOpen(false)}>
           Close
